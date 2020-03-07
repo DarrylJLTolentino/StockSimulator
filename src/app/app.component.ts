@@ -52,7 +52,7 @@ export class AppComponent {
     });
   }
 
-  forwardDay(event: Event) {
+  forwardDay() {
 
     for (var i = 0; i < this.companies.length; i++) {
       var temp = this.companies[i].price;
