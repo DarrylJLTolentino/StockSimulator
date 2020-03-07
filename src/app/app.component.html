@@ -1,3 +1,30 @@
 <h1>{{title}}</h1>
+<h3></h3>
+
+<!-- <p>{{companies[0].symbol}}</p>
+<p>{{companies[1].symbol}}</p>
+<p>{{companies[2].symbol}}</p>
+<p>{{companies[3].symbol}}</p>
+<p>{{companies[4].symbol}}</p> -->
+
+<!-- <ul>
+  <li *ngFor="let company of companies">{{company.name}}</li>
+</ul> -->
+
+<table>
+  <thead>
+    <th>Company</th>
+    <th>Ticker Symbol</th>
+    <th>Price</th>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let company of companies">
+      <td>{{company.name}}</td>
+      <td>{{company.symbol}}</td>
+      <td>{{company.price}}</td>
+    </tr>
+  </tbody>
+</table>
 
 <router-outlet></router-outlet>
