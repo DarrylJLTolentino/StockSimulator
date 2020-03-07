@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,9 @@ export class AppComponent {
 
   companies = [];
 
-  date = Date.now();
+  m = moment();
+
+  date = this.m.format("dddd, MMMM Do YYYY");
 
   counter = 0;
 
@@ -145,7 +148,8 @@ export class AppComponent {
     }
     this.counter++;
     console.log(this.counter);
-    this.date = Date.now() + this.counter;
+    this.m = this.m.add(1, 'day');
+    this.date = this.m.format("dddd, MMMM Do YYYY");
     console.log("Click went off");
   }
 }
