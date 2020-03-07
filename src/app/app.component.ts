@@ -12,6 +12,8 @@ export class AppComponent {
 
   companies = [];
 
+  today: number = Date.now();
+
   // companyName = [];
   // companySymbol = [];
   // companyPrice = [];
