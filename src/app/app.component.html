@@ -16,14 +16,20 @@
   <thead>
     <th>Company</th>
     <th>Ticker Symbol</th>
-    <th>Price</th>
+    <th>Initial Price</th>
+    <th>Current Price</th>
+    <th>&Delta; in Value</th>
+    <th>&Delta; since Initial</th>
   </thead>
 
   <tbody>
     <tr *ngFor="let company of companies">
       <td>{{company.name}}</td>
       <td>{{company.symbol}}</td>
-      <td>{{company.price}}</td>
+      <td>{{company.initial}}$</td>
+      <td>{{company.price}}$</td>
+      <td>{{company.civ}}$</td>
+      <td>{{company.csi}}%</td>
     </tr>
   </tbody>
 </table>

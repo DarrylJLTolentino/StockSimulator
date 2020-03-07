@@ -13,6 +13,8 @@ export class AppComponent {
 
   companies = [];
 
+  // initial = [];
+
   m = moment();
 
   date = this.m.format("dddd, MMMM Do YYYY");
@@ -47,6 +49,12 @@ export class AppComponent {
       // }
 
       console.log(this.companies);
+      // console.log(this.initial);
+      for (var i = 0; i < this.companies.length; i++) {
+        this.companies[i]['initial'] = this.companies[i].price;
+        this.companies[i]['civ'] = 0.0;
+        this.companies[i]['csi'] = 0.0;     
+      }
 
       // console.log(this.companyName);
       // console.log(this.companySymbol);
@@ -144,8 +152,12 @@ export class AppComponent {
         //price stays the same
         temp = temp;
       }
+      temp.toPrecision(3);
       this.companies[i].price = temp;
+      this.companies[i].civ = (Math.abs(this.companies[i].price - this.companies[i].initial)).toPrecision(3);
+      this.companies[i].csi = (((this.companies[i].price / this.companies[i].initial) * 100) - 100).toPrecision(3);
     }
+    // console.log(this.initial);
     this.counter++;
     console.log(this.counter);
     this.m = this.m.add(1, 'day');
