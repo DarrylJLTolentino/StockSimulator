@@ -27,9 +27,9 @@
       <td>{{company.name}}</td>
       <td>{{company.symbol}}</td>
       <td>{{company.initial}}$</td>
-      <td>{{company.price}}$</td>
-      <td>{{company.civ}}$</td>
-      <td>{{company.csi}}%</td>
+      <td>{{company.price | number : '1.2-2'}}$</td>
+      <td>{{company.civ | number : '1.2-2'}}$</td>
+      <td>{{company.csi | number : '1.2-2'}}%</td>
     </tr>
   </tbody>
 </table>
