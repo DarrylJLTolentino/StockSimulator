@@ -58,7 +58,7 @@
       <th>Initial Price</th>
       <th>Current Price</th>
       <th>&Delta; in Value</th>
-      <th>&Delta; since Initial</th>
+      <!-- <th>&Delta; since Initial</th> -->
     </thead>
     <tbody>
       <tr mdbTableCol *ngFor="let company of companies">
@@ -73,10 +73,10 @@
         <td>{{company.price | number : '1.2-2'}}$</td>
         <!-- company change in value key from the companies array accessed via "civ" key included on lines 62-66 in app.component.ts -->
         <!-- decimal pipe is used; civ will have at least one digit before decimal, at least 2 digits after decimal and no more than 2 digits after decimal -->
-        <td>{{company.civ | number : '1.2-2'}}$</td>
+        <td>{{company.civ | number : '1.2-2'}}$ / {{company.csi | number : '1.2-2'}}%</td>
         <!-- company change since initial value key from the companies array accessed via "csi" key included on lines 62-66 in app.component.ts -->
         <!-- decimal pipe is used; csi will have at least one digit before decimal, at least 2 digits after decimal and no more than 2 digits after decimal -->
-        <td>{{company.csi | number : '1.2-2'}}%</td>
+        <!-- <td>{{company.csi | number : '1.2-2'}}%</td> -->
       </tr>
     </tbody>
   </table>
