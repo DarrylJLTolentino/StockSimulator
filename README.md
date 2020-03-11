@@ -14,8 +14,9 @@ After pressing the "Forward the day button!", the day counter on the website wil
 | ----------------- | ---------- |
 | HTML | https://developer.mozilla.org/en-US/docs/Web/HTML |
 | CSS | https://developer.mozilla.org/en-US/docs/Web/CSS |
-| JavaScript | https://developer.mozilla.org/en-US/docs/Web/Javascript |
 | MDBootstrap | https://mdbootstrap.com/docs/angular/ |
+| JavaScript | https://developer.mozilla.org/en-US/docs/Web/Javascript |
+| TypeScript | https://www.typescriptlang.org/ |
 | Angular 2+ | https://angular.io/start |
 | Moment.js | https://momentjs.com/ |
 | Nodejs | https://nodejs.org/en/ |
