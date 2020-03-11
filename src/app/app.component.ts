@@ -62,7 +62,7 @@ export class AppComponent {
       for (var i = 0; i < this.companies.length; i++) {
         this.companies[i]['initial'] = this.companies[i].price;
         this.companies[i]['civ'] = 0.0;
-        this.companies[i]['csi'] = 0.0;     
+        this.companies[i]['csi'] = 0.0;
       }
 
       // console.log(this.companyName);
@@ -78,115 +78,24 @@ export class AppComponent {
     // for loop for math logic begins
     for (var i = 0; i < this.companies.length; i++) {
 
-      // for each company price, create a random number from 0 through 209
+      // for each company price
       var temp = this.companies[i].price;
-      var random = Math.floor(Math.random() * Math.floor(210))
-
-      // if random number is 0 through 9
-      if (random > -1 && random < 10) {
-        //price falls 10%
-        temp = temp - (temp * .1);
+      // there is a number between 0 to 10, both inclusive
+      var random = Math.floor(Math.random() * 11);
+      // there is a number between 0 and 1 to determine positive or negative
+      var operator = Math.floor(Math.random() * 2);
+      // if random does not equal 0
+      if (random != 0) {
+        // if operator equals 0, operator is positive
+        if (operator === 0) {
+          temp += temp * (random / 100);
+        }
+        // if operator equals 1, operator is negative
+        else {
+          temp += temp * ((-1 * random) / 100);
+        }
       }
-      // if random number is 10 through 19
-      else if (random > 9 && random < 20) {
-        //price falls 9%
-        temp = temp - (temp * .09);
-      }
-      // if random number is 20 through 29
-      else if (random > 19 && random < 30) {
-        //price falls 8%
-        temp = temp - (temp * .08);
-      }
-      // if random number is 30 through 39
-      else if (random > 29 && random < 40) {
-        //price falls 7%
-        temp = temp - (temp * .07);
-      }
-      // if random number is 40 through 49
-      else if (random > 39 && random < 50) {
-        //price falls 6%
-        temp = temp - (temp * .06);
-      }
-      // if random number is 50 through 59
-      else if (random > 49 && random < 60) {
-        //price falls 5%
-        temp = temp - (temp * .05);
-      }
-      // if random number is 60 through 69
-      else if (random > 59 && random < 70) {
-        //price falls 4%
-        temp = temp - (temp * .04);
-      }
-      // if random number is 70 through 79
-      else if (random > 69 && random < 80) {
-        //price falls 3%
-        temp = temp - (temp * .03);
-      }
-      // if random number is 80 through 89
-      else if (random > 79 && random < 90) {
-        //price falls 2%
-        temp = temp - (temp * .02);
-      }
-      // if random number is 90 through 99
-      else if (random > 89 && random < 100) {
-        //price falls 1%
-        temp = temp - (temp * .01);
-      }
-      // if random number is 110 through 119
-      else if (random > 109 && random < 120) {
-        //price rises 1%
-        temp = temp + (temp * .01);
-      }
-      // if random number is 120 through 129
-      else if (random > 119 && random < 130) {
-        //price rises 2%
-        temp = temp + (temp * .02);
-      }
-      // if random number is 130 through 139
-      else if (random > 129 && random < 140) {
-        //price rises 3%
-        temp = temp + (temp * .03);
-      }
-      // if random number is 140 through 149
-      else if (random > 139 && random < 150) {
-        //price rises 4%
-        temp = temp + (temp * .04);
-      }
-      // if random number is 150 through 159
-      else if (random > 149 && random < 160) {
-        //price rises 5%
-        temp = temp + (temp * .05);
-      }
-      // if random number is 160 through 169
-      else if (random > 159 && random < 170) {
-        //price rises 6%
-        temp = temp + (temp * .06);
-      }
-      // if random number is 170 through 179
-      else if (random > 169 && random < 180) {
-        //price rises 7%
-        temp = temp + (temp * .07);
-      }
-      // if random number is 180 through 189
-      else if (random > 179 && random < 190) {
-        //price rises 8%
-        temp = temp + (temp * .08);
-      }
-      // if random number is 190 through 199
-      else if (random > 189 && random < 200) {
-        //price rises 9%
-        temp = temp + (temp * .09);
-      }
-      // if random number is 200 through 209
-      else if (random > 199 && random < 210) {
-        //price rises 10%
-        temp = temp + (temp * .1);
-      }
-      // if random number is 100 through 109
-      else {
-        //price stays the same
-        temp = temp;
-      }
+      // if random is 0, there is no change.
 
       // setting price in array with new price
       this.companies[i].price = temp;
@@ -195,7 +104,6 @@ export class AppComponent {
       // calculation of change since initial price
       this.companies[i].csi = (((this.companies[i].price / this.companies[i].initial) * 100) - 100);
     }
-    // console.log(this.initial);
 
     // incrementing counter by 1
     this.counter++;
