@@ -1,9 +1,9 @@
 <!-- Title related to line 12 in app.component.ts -->
-<h1>{{title}}</h1>
+<h1 class="text-center">{{title}}</h1>
 <!-- Date related to line 21 in app.component.ts -->
-<p>{{date}}</p>
+<p class="text-center">{{date}}</p>
 <!-- Counter of days related to line 24 in app.component.ts -->
-<p>Day {{counter + 1}} of Simulation</p>
+<p class="text-center">Day {{counter + 1}} of Simulation</p>
 
 <!-- <p>{{companies[0].symbol}}</p>
 <p>{{companies[1].symbol}}</p>
@@ -50,39 +50,52 @@
   </tbody>
 </table> -->
 
-<table mdbTable>
-  <thead class="black white-text">
-    <th>Company</th>
-    <th>Ticker Symbol</th>
-    <th>Initial Price</th>
-    <th>Current Price</th>
-    <th>&Delta; in Value</th>
-    <th>&Delta; since Initial</th>
-  </thead>
-  <tbody>
-    <tr mdbTableCol *ngFor="let company of companies">
-      <!-- company name included from API call which is now in the companies array accessed via "name" key -->
-      <td>{{company.name}}</td>
-      <!-- company symbol included from API call which is now in the companies array accessed via "symbol" key -->
-      <td>{{company.symbol}}</td>
-      <!-- company initial price which is copied from the companies array accessed via "price" key -->
-      <td>{{company.initial}}$</td>
-      <!-- company price included from API call which is now in the companies array accessed via "price" key on lines 62-66 in app.component.ts -->
-      <!-- decimal pipe is used; price will have at least one digit before decimal, at least 2 digits after decimal and no more than 2 digits after decimal -->
-      <td>{{company.price | number : '1.2-2'}}$</td>
-      <!-- company change in value key from the companies array accessed via "civ" key included on lines 62-66 in app.component.ts -->
-      <!-- decimal pipe is used; civ will have at least one digit before decimal, at least 2 digits after decimal and no more than 2 digits after decimal -->
-      <td>{{company.civ | number : '1.2-2'}}$</td>
-      <!-- company change since initial value key from the companies array accessed via "csi" key included on lines 62-66 in app.component.ts -->
-      <!-- decimal pipe is used; csi will have at least one digit before decimal, at least 2 digits after decimal and no more than 2 digits after decimal -->
-      <td>{{company.csi | number : '1.2-2'}}%</td>
-    </tr>
-  </tbody>
-</table>
+<!--Grid row-->
+<div class="row d-flex justify-content-center">
+
+  <!--Grid column-->
+  <div class="col-md-6">
+    <table class = "table-sm text-center">
+      <thead class="black white-text">
+        <th>Company</th>
+        <th>Ticker Symbol</th>
+        <th>Initial Price</th>
+        <th>Current Price</th>
+        <th>&Delta; in Value</th>
+        <th>&Delta; since Initial</th>
+      </thead>
+      <tbody>
+        <tr mdbTableCol *ngFor="let company of companies">
+          <!-- company name included from API call which is now in the companies array accessed via "name" key -->
+          <td>{{company.name}}</td>
+          <!-- company symbol included from API call which is now in the companies array accessed via "symbol" key -->
+          <td>{{company.symbol}}</td>
+          <!-- company initial price which is copied from the companies array accessed via "price" key -->
+          <td>{{company.initial}}$</td>
+          <!-- company price included from API call which is now in the companies array accessed via "price" key on lines 62-66 in app.component.ts -->
+          <!-- decimal pipe is used; price will have at least one digit before decimal, at least 2 digits after decimal and no more than 2 digits after decimal -->
+          <td>{{company.price | number : '1.2-2'}}$</td>
+          <!-- company change in value key from the companies array accessed via "civ" key included on lines 62-66 in app.component.ts -->
+          <!-- decimal pipe is used; civ will have at least one digit before decimal, at least 2 digits after decimal and no more than 2 digits after decimal -->
+          <td>{{company.civ | number : '1.2-2'}}$</td>
+          <!-- company change since initial value key from the companies array accessed via "csi" key included on lines 62-66 in app.component.ts -->
+          <!-- decimal pipe is used; csi will have at least one digit before decimal, at least 2 digits after decimal and no more than 2 digits after decimal -->
+          <td>{{company.csi | number : '1.2-2'}}%</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <!--Grid column-->
+
+</div>
+<!--Grid row-->
+
+<br>
 
 <!-- Location of button related to event handler on lines 76 - 209 in app.component.ts -->
-<div>
-  <button (click)="forwardDay()">Forward the day!</button>
+<div class="text-center">
+  <button class="text-center btn btn-primary" (click)="forwardDay()">Forward the day!</button>
 </div>
 
 <router-outlet></router-outlet>
