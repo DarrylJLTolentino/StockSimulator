@@ -23,11 +23,6 @@ export class AppComponent {
   // Creating variable named counter and setting it equal to zero.
   counter = 0;
 
-  // companyName = [];
-  // companySymbol = [];
-  // companyPrice = [];
-  // counter = 0;
-
   constructor(private http: HttpClient) {
 
     // Creating var for link of API
@@ -46,15 +41,6 @@ export class AppComponent {
         }
       }
 
-      // for (let key in data) {
-      //   if (data.hasOwnProperty(key)) {
-      //     this.companyName.push(data[key].name);
-      //     this.companySymbol.push(data[key].symbol);
-      //     this.companyPrice.push(data[key].price);
-      //     this.counter++;
-      //   }
-      // }
-
       // logging what companies is equal to for debugging
       console.log(this.companies);
 
@@ -64,10 +50,6 @@ export class AppComponent {
         this.companies[i]['civ'] = 0.0;
         this.companies[i]['csi'] = 0.0;
       }
-
-      // console.log(this.companyName);
-      // console.log(this.companySymbol);
-      // console.log(this.companyPrice);
 
     });
   }

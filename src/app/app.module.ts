@@ -13,7 +13,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
   declarations: [
     AppComponent
   ],
-  // Need to import HttpClientModule and CommonModule here as well to make the exported declarations of other modules available in the current module
+  // Need to import HttpClientModule, CommonModule, and MDBBootstrapModule here as well to make the exported declarations of other modules available in the current module
   imports: [
     BrowserModule,
     AppRoutingModule,
