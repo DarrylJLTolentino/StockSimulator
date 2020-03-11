@@ -15,9 +15,9 @@
   <li *ngFor="let company of companies">{{company.name}}</li>
 </ul> -->
 
-<!-- Table with border 1 for basic styling for now -->
+<!-- Table with border 1 for basic styling for now
 <table border="1">
-  <!-- Table headers -->
+  Table headers
   <thead>
     <th>Company</th>
     <th>Ticker Symbol</th>
@@ -25,12 +25,42 @@
     <th>Current Price</th>
     <th>&Delta; in Value</th>
     <th>&Delta; since Initial</th>
+  </thead> -->
+
+<!-- Table body with table rows and table data -->
+<!-- <tbody> -->
+<!-- Angular's version of a for loop for data related to the for loop on lines 43-47 in app.component.ts  -->
+<!-- <tr *ngFor="let company of companies"> -->
+<!-- company name included from API call which is now in the companies array accessed via "name" key -->
+<!-- <td>{{company.name}}</td> -->
+<!-- company symbol included from API call which is now in the companies array accessed via "symbol" key -->
+<!-- <td>{{company.symbol}}</td> -->
+<!-- company initial price which is copied from the companies array accessed via "price" key -->
+<!-- <td>{{company.initial}}$</td> -->
+<!-- company price included from API call which is now in the companies array accessed via "price" key on lines 62-66 in app.component.ts -->
+<!-- decimal pipe is used; price will have at least one digit before decimal, at least 2 digits after decimal and no more than 2 digits after decimal -->
+<!-- <td>{{company.price | number : '1.2-2'}}$</td> -->
+<!-- company change in value key from the companies array accessed via "civ" key included on lines 62-66 in app.component.ts -->
+<!-- decimal pipe is used; civ will have at least one digit before decimal, at least 2 digits after decimal and no more than 2 digits after decimal -->
+<!-- <td>{{company.civ | number : '1.2-2'}}$</td> -->
+<!-- company change since initial value key from the companies array accessed via "csi" key included on lines 62-66 in app.component.ts -->
+<!-- decimal pipe is used; csi will have at least one digit before decimal, at least 2 digits after decimal and no more than 2 digits after decimal -->
+<!-- <td>{{company.csi | number : '1.2-2'}}%</td>
+    </tr>
+  </tbody>
+</table> -->
+
+<table mdbTable>
+  <thead class="black white-text">
+    <th>Company</th>
+    <th>Ticker Symbol</th>
+    <th>Initial Price</th>
+    <th>Current Price</th>
+    <th>&Delta; in Value</th>
+    <th>&Delta; since Initial</th>
   </thead>
-  
-  <!-- Table body with table rows and table data -->
   <tbody>
-    <!-- Angular's version of a for loop for data related to the for loop on lines 43-47 in app.component.ts  -->
-    <tr *ngFor="let company of companies">
+    <tr mdbTableCol *ngFor="let company of companies">
       <!-- company name included from API call which is now in the companies array accessed via "name" key -->
       <td>{{company.name}}</td>
       <!-- company symbol included from API call which is now in the companies array accessed via "symbol" key -->
@@ -49,8 +79,6 @@
     </tr>
   </tbody>
 </table>
-
-<hr>
 
 <!-- Location of button related to event handler on lines 76 - 209 in app.component.ts -->
 <div>
